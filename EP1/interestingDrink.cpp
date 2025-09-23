@@ -17,24 +17,19 @@ typedef pair<int,int> pi;
 void solve()
 {
     int n; cin >> n;
-    vector<pi> st(n);
-    forn(i,n){
-        int l, r; 
-        cin >> l >> r;
-        st[i] = MP(l, r);
+    vi p(n);
+    forn(i,n) cin >> p[i];
+    sort(p.begin(), p.end());
+
+    int q; cin >> q;
+
+    for (int i = 0; i < q; ++i){
+        int m; cin >> m;
+        auto idx = upper_bound(p.begin(), p.end(), m);
+        cout << idx - p.begin() << "\n";
     }
-    int lst = 0;
-    vi ans(n);
-    forn(i,n){
-        int pt = max(lst +1, st[i].first);
-        if (pt <= st[i].second) {
-            ans[i] = pt;
-            lst = pt;
-        }
-        else ans[i] = 0;
-    }
-    forn(i, n) cout << ans[i] << " ";
-    cout << "\n";
+
+
 }
 
 int main()
@@ -42,8 +37,10 @@ int main()
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 
-	int tt; cin >> tt; while (tt--) solve();
-	//solve();
+
+
+	//int tt; cin >> tt; while (tt--) solve();
+	solve();
 	
 	return 0;
 }
