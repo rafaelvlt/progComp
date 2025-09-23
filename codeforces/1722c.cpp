@@ -3,7 +3,7 @@
 #define S second
 #define PB push_back
 #define MP make_pair
-#define forn(i, n) for(int i=0; i < int(n); ++i)
+#define forn(i,n) for(int i=0; i < int(n); ++i)
 #include <bits/stdc++.h>
 //para compilar: 
 //g++ -std=c++17 -O2 -Wall nome.cpp -o nome
@@ -16,7 +16,17 @@ typedef pair<int,int> pi;
 
 void solve()
 {
-
+    int n;
+    cin >> n;
+    vi p(3);
+    vector<vector<string>> s;
+    for(int j = 0; j < 3; ++j)
+    {
+        forn(i,n){
+            cin >> s[j][i];
+        }
+    }
+    
 }
 
 int main()
@@ -30,7 +40,7 @@ int main()
     #endif
 
 
-	//int tt; cin >> tt; while (tt--) solve();
+	int tt; cin >> tt; while (tt--) solve();
 	//solve();
 	
 	return 0;
