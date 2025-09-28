@@ -16,33 +16,29 @@ typedef pair<int,int> pi;
 
 void solve()
 {
-    int n; cin >> n;
-    vi data(n);
-    forn(i, n) cin >> data[i];
-    
-    priority_queue<int, vector<int>, greater<int>> A(data.begin(), data.end());
-    
-    int arr[2];
-    while(A.size() > 1){
-        arr[0] = A.top(); 
-        A.pop();
-        arr[1] = A.top();
-        A.pop();
-        A.push(arr[0] + arr[1] - 1);
+    string orig, s;
+    cin >> orig;
+    for (int i = 0; i < orig.size(); ++i){
+        s += orig[i];
+        if (s.size()>2 && s.substr(s.size()-3) == "ABC")
+            s.replace(s.size()-3, s.size(), "");
     }
-
-    cout << A.top() << '\n';
+    cout << s << '\n';
 }
-
 
 int main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 
+	//#ifndef ONLINE_JUDGE
+    //  freopen("input.txt", "r", stdin);
+    //  freopen("output.txt", "w", stdout);
+    //#endif
 
-	int tt; cin >> tt; while (tt--) solve();
-	//solve();
+
+	//int tt; cin >> tt; while (tt--) solve();
+	solve();
 	
 	return 0;
 }

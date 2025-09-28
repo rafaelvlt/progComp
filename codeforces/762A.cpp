@@ -16,7 +16,20 @@ typedef pair<int,int> pi;
 
 void solve()
 {
-
+    ll n, k; cin >> n >> k;
+    vector<ll> div;
+    for (ll i = 1; i*i <= n; ++i){
+        if (!(n % i)){
+            div.PB(i);
+            if (n/i != i) div.PB(n/i);
+        }
+    }
+    if (div.size() < k) cout << -1 << '\n';
+    else {
+        sort(div.begin(), div.end());
+        cout << div[k-1] << '\n';
+    }
+    
 }
 
 int main()
@@ -31,7 +44,7 @@ int main()
 
 
 	//int tt; cin >> tt; while (tt--) solve();
-	//solve();
+	solve();
 	
 	return 0;
 }

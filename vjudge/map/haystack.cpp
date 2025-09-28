@@ -16,7 +16,21 @@ typedef pair<int,int> pi;
 
 void solve()
 {
-
+    int m, n; cin >> m >> n;
+    map<string, int> dic;
+    for (int i = 0; i < m; ++i){
+        string a; int b; cin >> a >> b;
+        dic[a] = b;
+    }
+    for (int i = 0; i < n; ++i){
+        string word; cin >> word;
+        int value = 0;
+        while (word != "."){
+            value += dic[word];
+            cin >> word;
+        }
+        cout << value << '\n';
+    } 
 }
 
 int main()
@@ -31,7 +45,7 @@ int main()
 
 
 	//int tt; cin >> tt; while (tt--) solve();
-	//solve();
+	solve();
 	
 	return 0;
 }

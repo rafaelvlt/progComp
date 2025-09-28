@@ -16,7 +16,22 @@ typedef pair<int,int> pi;
 
 void solve()
 {
+    string sa = "0", sb;
+    map<string, string> dic;
+    while(sa != ""){
+        getline(cin, sa);
+        auto c = sa.find(" ");
+        if (c != string::npos) {
+            sb = sa.substr(c+1);
+            sa = sa.substr(0, c);   
+            dic[sb] = sa;
+        }
+    }
 
+    while (getline(cin, sa)){
+        if (dic[sa] != "") cout << dic[sa] << '\n';
+        else cout << "eh\n";
+    }
 }
 
 int main()
@@ -31,7 +46,7 @@ int main()
 
 
 	//int tt; cin >> tt; while (tt--) solve();
-	//solve();
+	solve();
 	
 	return 0;
 }

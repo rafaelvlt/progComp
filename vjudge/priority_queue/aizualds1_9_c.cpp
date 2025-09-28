@@ -14,9 +14,9 @@ typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int,int> pi;
 
-void solve()
+void solve(string& t)
 {
-
+    
 }
 
 int main()
@@ -31,7 +31,20 @@ int main()
 
 
 	//int tt; cin >> tt; while (tt--) solve();
-	//solve();
+	string t; cin >> t;
+    priority_queue<int> S;
+    while (t != "end") {
+        if (t == "insert") {
+            int b; 
+            cin >> b;
+            S.push(b);
+        }
+        else {
+            cout << S.top() << '\n';
+            S.pop();
+        }
+            cin >> t;
+    }
 	
 	return 0;
 }

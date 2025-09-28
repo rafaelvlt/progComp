@@ -16,7 +16,27 @@ typedef pair<int,int> pi;
 
 void solve()
 {
-
+	int n; cin >> n;
+	vector<ll> A(n);
+	forn(i,n) cin >> A[i];
+	ll idx = 0;
+	priority_queue<ll> S;
+	ll product = 1;
+	ll least = 0;
+	vector<ll> aux = {A[0], A[1], A[2]};
+	sort(aux.rbegin(), aux.rend());
+	while (idx < n){
+		S.push(A[idx]);
+		if (idx < 2) {
+			cout << -1 << '\n';
+			product *= S.top();
+		}
+		else {
+			cout << product << '\n';
+			
+		}
+		idx++;
+	}
 }
 
 int main()
@@ -31,7 +51,7 @@ int main()
 
 
 	//int tt; cin >> tt; while (tt--) solve();
-	//solve();
+	solve();
 	
 	return 0;
 }
