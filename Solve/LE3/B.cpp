@@ -47,6 +47,11 @@ public:
 int main() {
     int n, m; cin >> n >> m;
 
+    UnionFind
+
+    while(m--){
+        if 
+    }
 
     return 0;
 }
