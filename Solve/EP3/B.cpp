@@ -39,21 +39,23 @@ struct UnionFind{
 };
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int n, m; cin >> n >> m;
     UnionFind uf(n);
-    int maxRank = 0;
+    int r = 0;
 
     while (m--){
         int a, b; cin >> a >> b;
+        if (uf.find(a) != uf.find(b)) {
+            r++;
+        }
         uf.unite(a, b);
     }
-    for (int i  = 0; i <= n ; i++){
-        maxRank = max(maxRank, uf.getSize(i));
-    }
 
-    ll ans = 1;
-    if (maxRank > 0) ans = pow(2, maxRank-1);
-    else ans = 1;
+    ll ans = 1LL << r;
+    
     cout << ans << '\n';
 
     return 0;
