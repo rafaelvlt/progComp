@@ -2,25 +2,41 @@
 
 using namespace std;
 
-void generateAndProcessPermutations(vector<int>& items) {
-    // Ordenar para garantir que todas as permutações sejam geradas.
-    sort(items.begin(), items.end());
-
-    int count = 0;
-    do {
-        // Bloco de processamento da permutação atual
-        // Exemplo: apenas imprimir
-        printf("%d: {", ++count);
-        for (size_t i = 0; i < items.size(); ++i) {
-            printf(" %d", items[i]);
+// permutação recursiva =============
+int n;
+vector<int> permutation;
+vector<bool> chosen;
+void search(){
+    //permutações do set 0, 1... n-1
+    vector<int> permutation;
+    if (permutation.size() == n) {
+        // process permutation
+    } else {
+        for (int i = 0; i < n; i++) {
+            // se o caso i já foi escolhido, pula
+            if (chosen[i]) continue;
+            //escolhe o numero i e chama recursivamente
+            chosen[i] = true;
+            permutation.push_back(i);
+            search();
+            // retira a escolha do numero i e chama recursivamente
+            chosen[i] = false;
+            permutation.pop_back();
         }
-        printf(" }\n");
-
-    } while (next_permutation(items.begin(), items.end()));
+    }
 }
+// ====================================
 
-// Exemplo de uso
-void demoPermutations() {
-    vector<int> my_items = {3, 1, 2};
-    generateAndProcessPermutations(my_items);
+// permutação com STL =============
+void solve(){
+    
+    int n; cin >> n;
+    vector<int> permutation;
+    for (int i = 0; i < n; i++) {
+    permutation.push_back(i);
+    }
+    do {
+    // process permutation
+    } while (next_permutation(permutation.begin(),permutation.end()));
 }
+// ====================================

@@ -1,33 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> generatePowerSet(const vector<int>& original_set) {
-    int n = original_set.size();
-    int power_set_size = 1 << n; // 2^n
-    vector<vector<int>> power_set(power_set_size); // Pré-aloca o tamanho exato
-
-    for (int i = 0; i < power_set_size; i++) {
-        for (int j = 0; j < n; j++) {
-            // Se o j-ésimo bit de 'i' está ligado, o elemento 'j' pertence ao subconjunto
-            if (i & (1 << j)) {
-                power_set[i].push_back(original_set[j]);
+void bitMaskPowerSet{
+    int n = original_set.size();    
+    vector<vector<int>> power_set;
+    int power_set_size = 1 << n;
+    for (int mask = 0; mask < power_set_size; mask++) {
+        for (int idx = 0; idx < n; idx++) {
+            if (mask & (1 << idx)) {
+                power_set[mask].push_back(original_set[idx]);
             }
         }
     }
-    return power_set;
 }
 
-// Exemplo de uso
-void demoPowerSet() {
-    vector<int> my_set = {1, 2, 3};
-    vector<vector<int>> result = generatePowerSet(my_set);
-
-    printf("Conjunto das partes de {1, 2, 3}:\n");
-    for (const auto& subset : result) {
-        printf("{ ");
-        for (int val : subset) {
-            printf("%d ", val);
-        }
-        printf("}\n");
+//gera o subset de 0 até n, com k sendo chamado com 0 primeiro
+//idealmente fazer um subsets globais e dar pushback
+int n;
+vector<int> subset;
+void search(int k) {
+    if (k == n) {
+        // process subset
+    } else {
+    search(k+1);
+    subset.push_back(k);
+    search(k+1);
+    subset.pop_back();
     }
 }
