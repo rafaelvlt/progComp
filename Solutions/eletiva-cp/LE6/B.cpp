@@ -2,6 +2,12 @@
 
 using namespace std;
 
+using vi = vector<int>;
+using vll = vector<long long>;
+using pii = pair<int, int>;
+using ll = long long;
+
+
 struct UnionFind{
     vector<int> parent;
     vector<int> size;
@@ -39,3 +45,31 @@ struct UnionFind{
         else return false;
     }
 };
+
+int main(){
+    int n, m; cin >> n >> m;
+
+    vector<pair<int, pii>> edgeList;
+
+    for (int i = 0; i < m; i++){
+        int a, b, c; cin >> a >> b >> c;
+        edgeList.push_back(make_pair(c, make_pair(--a, --b)));
+    }
+
+    sort(edgeList.begin(), edgeList.end());
+
+    long long  mst_cost = 0;
+    UnionFind UF(n);
+    int components = n;
+    for (int i = 0; i < m; i++) {
+        pair<int, pii> front = edgeList[i];
+        if (!UF.isSameSet(front.second.first, front.second.second)) {
+            mst_cost += front.first;
+            UF.unite(front.second.first, front.second.second);
+            components--;
+        } 
+    }
+    
+    if (components == 1) cout << mst_cost << '\n';
+    else cout << "IMPOSSIBLE\n";
+}
