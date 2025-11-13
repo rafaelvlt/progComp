@@ -7,6 +7,8 @@ using vll = vector<long long>;
 using pii = pair<int, int>;
 using ll = long long;
 
+const ll INF = 1e18;
+
 void solve(){
 
 }
