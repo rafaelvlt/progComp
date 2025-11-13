@@ -61,11 +61,12 @@ vector<ll> dijkstra(int s, int V,
     return dist;
 }
 
+/*
 ### Derivados (Dijkstra): Imprimindo o Caminho
 
-Após executar `dijkstra`, o vetor `p` contém a árvore de caminhos mais curtos. Esta função reconstrói o caminho do `s` até `t`. [cite: 1405]
+Após executar Dijkstra, o vetor `p` contém a árvore de caminhos mais curtos. Esta função reconstrói o caminho do `s` até `t`. 
+*/
 
-```cpp
 /**
  * @brief Reconstrói o caminho mais curto de s para t.
  * Deve ser chamado APÓS a execução de dijkstra(s, V, AdjList, p).
